@@ -25,8 +25,8 @@ namespace Catch {
             // This should really be a variant, but this is much faster
             // to write and the data layout here is already terrible
             // enough that we do not have to care about the object size.
-            Optional<AssertionStats> m_assertion;
-            Optional<BenchmarkStats<>> m_benchmark;
+            Optional<AssertionStats> m_assertion {};
+            Optional<BenchmarkStats<>> m_benchmark {};
         public:
             AssertionOrBenchmarkResult(AssertionStats const& assertion);
             AssertionOrBenchmarkResult(BenchmarkStats<> const& benchmark);
@@ -67,7 +67,7 @@ namespace Catch {
 
             using ChildNodes = std::vector<Detail::unique_ptr<ChildNodeT>>;
             T value;
-            ChildNodes children;
+            ChildNodes children {};
         };
         struct SectionNode {
             explicit SectionNode(SectionStats const& _stats) : stats(_stats) {}
@@ -79,10 +79,10 @@ namespace Catch {
             bool hasAnyAssertions() const;
 
             SectionStats stats;
-            std::vector<Detail::unique_ptr<SectionNode>> childSections;
-            std::vector<Detail::AssertionOrBenchmarkResult> assertionsAndBenchmarks;
-            std::string stdOut;
-            std::string stdErr;
+            std::vector<Detail::unique_ptr<SectionNode>> childSections {};
+            std::vector<Detail::AssertionOrBenchmarkResult> assertionsAndBenchmarks {};
+            std::string stdOut {};
+            std::string stdErr {};
         };
 
 
@@ -94,6 +94,8 @@ namespace Catch {
         CumulativeReporterBase(ReporterConfig&& _config):
             ReporterBase(CATCH_MOVE(_config))
         {}
+        CumulativeReporterBase( CumulativeReporterBase const& other ) = default;
+        CumulativeReporterBase& operator=( CumulativeReporterBase const& ) = delete;
         ~CumulativeReporterBase() override;
 
         void benchmarkPreparing( StringRef ) override {}
@@ -132,18 +134,18 @@ namespace Catch {
         // We need lazy construction here. We should probably refactor it
         // later, after the events are redone.
         //! The root node of the test run tree.
-        Detail::unique_ptr<TestRunNode> m_testRun;
+        Detail::unique_ptr<TestRunNode> m_testRun {};
 
     private:
         // Note: We rely on pointer identity being stable, which is why
         //       we store pointers to the nodes rather than the values.
-        std::vector<Detail::unique_ptr<TestCaseNode>> m_testCases;
+        std::vector<Detail::unique_ptr<TestCaseNode>> m_testCases {};
         // Root section of the _current_ test case
-        Detail::unique_ptr<SectionNode> m_rootSection;
+        Detail::unique_ptr<SectionNode> m_rootSection {};
         // Deepest section of the _current_ test case
         SectionNode* m_deepestSection = nullptr;
         // Stack of _active_ sections in the _current_ test case
-        std::vector<SectionNode*> m_sectionStack;
+        std::vector<SectionNode*> m_sectionStack {};
     };
 
 } // end namespace Catch

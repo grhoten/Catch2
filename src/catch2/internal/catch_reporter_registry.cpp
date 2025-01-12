@@ -23,9 +23,9 @@
 
 namespace Catch {
     struct ReporterRegistry::ReporterRegistryImpl {
-        std::vector<Detail::unique_ptr<EventListenerFactory>> listeners;
+        std::vector<Detail::unique_ptr<EventListenerFactory>> listeners {};
         std::map<std::string, IReporterFactoryPtr, Detail::CaseInsensitiveLess>
-            factories;
+            factories {};
     };
 
     ReporterRegistry::ReporterRegistry():

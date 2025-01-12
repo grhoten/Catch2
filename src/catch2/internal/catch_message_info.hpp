@@ -22,7 +22,7 @@ namespace Catch {
                         ResultWas::OfType _type );
 
         StringRef macroName;
-        std::string message;
+        std::string message {};
         SourceLineInfo lineInfo;
         ResultWas::OfType type;
         unsigned int sequence;

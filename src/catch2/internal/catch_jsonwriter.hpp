@@ -56,7 +56,7 @@ namespace Catch {
         }
 
         std::ostream& m_os;
-        std::stringstream m_sstream;
+        std::stringstream m_sstream {};
         std::uint64_t m_indent_level;
     };
 

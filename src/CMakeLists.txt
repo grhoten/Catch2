@@ -188,6 +188,7 @@ set(IMPL_SOURCES
   ${SOURCES_DIR}/internal/catch_leak_detector.cpp
   ${SOURCES_DIR}/internal/catch_list.cpp
   ${SOURCES_DIR}/internal/catch_message_info.cpp
+  ${SOURCES_DIR}/internal/catch_noncopyable.cpp
   ${SOURCES_DIR}/internal/catch_output_redirect.cpp
   ${SOURCES_DIR}/internal/catch_parse_numbers.cpp
   ${SOURCES_DIR}/internal/catch_polyfills.cpp

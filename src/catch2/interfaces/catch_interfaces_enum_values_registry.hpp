@@ -16,8 +16,8 @@ namespace Catch {
 
     namespace Detail {
         struct EnumInfo {
-            StringRef m_name;
-            std::vector<std::pair<int, StringRef>> m_values;
+            StringRef m_name {};
+            std::vector<std::pair<int, StringRef>> m_values {};
 
             ~EnumInfo();
 
@@ -27,7 +27,7 @@ namespace Catch {
 
     class IMutableEnumValuesRegistry {
     public:
-        virtual ~IMutableEnumValuesRegistry(); // = default;
+        virtual ~IMutableEnumValuesRegistry();
 
         virtual Detail::EnumInfo const& registerEnum( StringRef enumName, StringRef allEnums, std::vector<int> const& values ) = 0;
 

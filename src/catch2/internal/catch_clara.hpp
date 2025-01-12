@@ -111,7 +111,7 @@ namespace Catch {
                 using Iterator = std::vector<StringRef>::const_iterator;
                 Iterator it;
                 Iterator itEnd;
-                std::vector<Token> m_tokenBuffer;
+                std::vector<Token> m_tokenBuffer {};
                 void loadBuffer();
 
             public:
@@ -275,7 +275,7 @@ namespace Catch {
                 }
 
                 std::string
-                    m_errorMessage; // Only populated if resultType is an error
+                    m_errorMessage {}; // Only populated if resultType is an error
 
                 BasicResult( ResultType type,
                              std::string&& message ):
@@ -491,8 +491,8 @@ namespace Catch {
             protected:
                 Optionality m_optionality = Optionality::Optional;
                 std::shared_ptr<BoundRef> m_ref;
-                StringRef m_hint;
-                StringRef m_description;
+                StringRef m_hint {};
+                StringRef m_description {};
 
                 explicit ParserRefImpl( std::shared_ptr<BoundRef> const& ref ):
                     m_ref( ref ) {}
@@ -569,7 +569,7 @@ namespace Catch {
         // A parser for options
         class Opt : public Detail::ParserRefImpl<Opt> {
         protected:
-            std::vector<StringRef> m_optNames;
+            std::vector<StringRef> m_optNames {};
 
         public:
             template <typename LambdaT>
@@ -620,7 +620,7 @@ namespace Catch {
         // Specifies the name of the executable
         class ExeName : public Detail::ComposableParserImpl<ExeName> {
             std::shared_ptr<std::string> m_name;
-            std::shared_ptr<Detail::BoundValueRefBase> m_ref;
+            std::shared_ptr<Detail::BoundValueRefBase> m_ref {};
 
         public:
             ExeName();
@@ -644,9 +644,9 @@ namespace Catch {
 
         // A Combined parser
         class Parser : Detail::ParserBase {
-            mutable ExeName m_exeName;
-            std::vector<Opt> m_options;
-            std::vector<Arg> m_args;
+            mutable ExeName m_exeName {};
+            std::vector<Opt> m_options {};
+            std::vector<Arg> m_args {};
 
         public:
 

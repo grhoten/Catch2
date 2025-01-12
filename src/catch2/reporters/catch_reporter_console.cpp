@@ -21,8 +21,6 @@
 #include <catch2/internal/catch_move_and_forward.hpp>
 #include <catch2/catch_get_random_seed.hpp>
 
-#include <cstdio>
-
 #if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable:4061) // Not all labels are EXPLICITLY handled in switch
@@ -185,8 +183,8 @@ private:
     AssertionStats const& stats;
     AssertionResult const& result;
     Colour::Code colour;
-    StringRef passOrFail;
-    StringRef messageLabel;
+    StringRef passOrFail {};
+    StringRef messageLabel {};
     std::vector<MessageInfo> const& messages;
     ColourImpl* colourImpl;
     bool printInfoMessages;
@@ -300,7 +298,7 @@ struct ColumnInfo {
 class TablePrinter {
     std::ostream& m_os;
     std::vector<ColumnInfo> m_columnInfos;
-    ReusableStringStream m_oss;
+    ReusableStringStream m_oss {};
     int m_currentColumn = -1;
     bool m_isOpen = false;
 

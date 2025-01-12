@@ -50,7 +50,7 @@ class RandomFloatingGenerator<long double> final : public IGenerator<long double
     // want to drag it into the header.
     struct PImpl;
     Catch::Detail::unique_ptr<PImpl> m_pimpl;
-    long double m_current_number;
+    long double m_current_number {};
 
 public:
     RandomFloatingGenerator( long double a, long double b, std::uint32_t seed );

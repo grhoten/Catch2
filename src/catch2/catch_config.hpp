@@ -80,13 +80,13 @@ namespace Catch {
         ColourMode defaultColourMode = ColourMode::PlatformDefault;
         WaitForKeypress::When waitForKeypress = WaitForKeypress::Never;
 
-        std::string defaultOutputFilename;
-        std::string name;
-        std::string processName;
-        std::vector<ReporterSpec> reporterSpecifications;
+        std::string defaultOutputFilename {};
+        std::string name {};
+        std::string processName {};
+        std::vector<ReporterSpec> reporterSpecifications {};
 
-        std::vector<std::string> testsOrTags;
-        std::vector<std::string> sectionsToRun;
+        std::vector<std::string> testsOrTags {};
+        std::vector<std::string> sectionsToRun {};
     };
 
 
@@ -144,8 +144,8 @@ namespace Catch {
         void readBazelEnvVars();
 
         ConfigData m_data;
-        std::vector<ProcessedReporterSpec> m_processedReporterSpecs;
-        TestSpec m_testSpec;
+        std::vector<ProcessedReporterSpec> m_processedReporterSpecs {};
+        TestSpec m_testSpec {};
         bool m_hasTestFilters = false;
     };
 } // end namespace Catch

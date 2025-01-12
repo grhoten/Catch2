@@ -19,7 +19,7 @@ namespace Catch {
         class GeneratorUntypedBase {
             // Caches result from `toStringImpl`, assume that when it is an
             // empty string, the cache is invalidated.
-            mutable std::string m_stringReprCache;
+            mutable std::string m_stringReprCache {};
 
             // Counts based on `next` returning true
             std::size_t m_currentElementIndex = 0;
@@ -42,7 +42,7 @@ namespace Catch {
             GeneratorUntypedBase(GeneratorUntypedBase const&) = default;
             GeneratorUntypedBase& operator=(GeneratorUntypedBase const&) = default;
 
-            virtual ~GeneratorUntypedBase(); // = default;
+            virtual ~GeneratorUntypedBase();
 
             /**
              * Attempts to move the generator to the next element
@@ -79,7 +79,7 @@ namespace Catch {
 
     class IGeneratorTracker {
     public:
-        virtual ~IGeneratorTracker(); // = default;
+        virtual ~IGeneratorTracker();
         virtual auto hasGenerator() const -> bool = 0;
         virtual auto getGenerator() const -> Generators::GeneratorBasePtr const& = 0;
         virtual void setGenerator( Generators::GeneratorBasePtr&& generator ) = 0;

@@ -56,6 +56,8 @@ namespace Catch {
             m_handler(handler) {
             m_handler->engage();
         }
+        FatalConditionHandlerGuard( FatalConditionHandlerGuard const& ) = delete;
+        FatalConditionHandlerGuard& operator=( FatalConditionHandlerGuard const& ) = delete;
         ~FatalConditionHandlerGuard() {
             m_handler->disengage();
         }

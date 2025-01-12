@@ -32,7 +32,7 @@ namespace Catch {
             return *this;
         }
 
-        ReusableStringStream m_stream;
+        ReusableStringStream m_stream {};
     };
 
     struct MessageBuilder : MessageStream {
@@ -62,7 +62,7 @@ namespace Catch {
     };
 
     class Capturer {
-        std::vector<MessageInfo> m_messages;
+        std::vector<MessageInfo> m_messages {};
         IResultCapture& m_resultCapture;
         size_t m_captured = 0;
     public:

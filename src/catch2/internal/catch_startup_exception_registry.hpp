@@ -20,7 +20,7 @@ namespace Catch {
         void add(std::exception_ptr const& exception) noexcept;
         std::vector<std::exception_ptr> const& getExceptions() const noexcept;
     private:
-        std::vector<std::exception_ptr> m_exceptions;
+        std::vector<std::exception_ptr> m_exceptions {};
 #endif
     };
 

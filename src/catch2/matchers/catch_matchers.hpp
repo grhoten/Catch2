@@ -14,6 +14,11 @@
 #include <string>
 #include <vector>
 
+#if defined __GNUC__
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Weffc++"
+#endif
+
 namespace Catch {
 namespace Matchers {
 
@@ -233,5 +238,9 @@ namespace Matchers {
   #define REQUIRE_THAT( arg, matcher )                           (void)(0)
 
 #endif // end of user facing macro declarations
+
+#if defined __GNUC__
+#  pragma GCC diagnostic pop
+#endif
 
 #endif // CATCH_MATCHERS_HPP_INCLUDED

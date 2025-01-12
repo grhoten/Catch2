@@ -24,8 +24,8 @@ namespace Catch {
 
         AssertionResultData( ResultWas::OfType _resultType, LazyExpression const& _lazyExpression );
 
-        std::string message;
-        mutable std::string reconstructedExpression;
+        std::string message {};
+        mutable std::string reconstructedExpression {};
         LazyExpression lazyExpression;
         ResultWas::OfType resultType;
 

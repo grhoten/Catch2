@@ -17,12 +17,14 @@
 
 namespace Catch {
 
-    class ReusableStringStream : Detail::NonCopyable {
+    class ReusableStringStream : public Detail::NonCopyable {
         std::size_t m_index;
         std::ostream* m_oss;
     public:
         ReusableStringStream();
-        ~ReusableStringStream();
+        ~ReusableStringStream() override;
+        ReusableStringStream( ReusableStringStream const& ) = delete;
+        ReusableStringStream& operator=( ReusableStringStream const& ) = delete;
 
         //! Returns the serialized state
         std::string str() const;

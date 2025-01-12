@@ -10,6 +10,10 @@
 
 namespace Catch {
 
+    GeneratorException::GeneratorException( GeneratorException const& other):
+        m_msg(other.m_msg)
+    {}
+
     const char* GeneratorException::what() const noexcept {
         return m_msg;
     }

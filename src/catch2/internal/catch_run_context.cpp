@@ -31,7 +31,7 @@ namespace Catch {
         namespace {
             struct GeneratorTracker final : TestCaseTracking::TrackerBase,
                                       IGeneratorTracker {
-                GeneratorBasePtr m_generator;
+                GeneratorBasePtr m_generator {};
 
                 GeneratorTracker(
                     TestCaseTracking::NameAndLocation&& nameAndLocation,

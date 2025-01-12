@@ -26,7 +26,7 @@ namespace Detail {
         template<typename WriterF, std::size_t bufferSize=256>
         class StreamBufImpl final : public std::streambuf {
             char data[bufferSize];
-            WriterF m_writer;
+            WriterF m_writer {};
 
         public:
             StreamBufImpl() {
@@ -73,7 +73,7 @@ namespace Detail {
         ///////////////////////////////////////////////////////////////////////////
 
         class FileStream final : public IStream {
-            std::ofstream m_ofs;
+            std::ofstream m_ofs {};
         public:
             FileStream( std::string const& filename ) {
                 m_ofs.open( filename.c_str() );

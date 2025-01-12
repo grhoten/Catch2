@@ -18,12 +18,17 @@
 #include <string>
 #include <type_traits>
 
+#if defined __GNUC__
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Weffc++"
+#endif
+
 namespace Catch {
 namespace Matchers {
     class MatcherGenericBase : public MatcherUntypedBase {
     public:
         MatcherGenericBase() = default;
-        ~MatcherGenericBase() override; // = default;
+        ~MatcherGenericBase() override;
 
         MatcherGenericBase(MatcherGenericBase const&) = default;
         MatcherGenericBase(MatcherGenericBase&&) = default;
@@ -292,5 +297,9 @@ namespace Matchers {
 
 } // namespace Matchers
 } // namespace Catch
+
+#if defined __GNUC__
+#  pragma GCC diagnostic pop
+#endif
 
 #endif // CATCH_MATCHERS_TEMPLATED_HPP_INCLUDED

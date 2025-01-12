@@ -29,16 +29,18 @@ namespace Catch {
         bool m_exclusion = false;
         std::size_t m_pos = 0;
         std::size_t m_realPatternPos = 0;
-        std::string m_arg;
-        std::string m_substring;
-        std::string m_patternName;
-        std::vector<std::size_t> m_escapeChars;
-        TestSpec::Filter m_currentFilter;
-        TestSpec m_testSpec;
+        std::string m_arg {};
+        std::string m_substring {};
+        std::string m_patternName {};
+        std::vector<std::size_t> m_escapeChars {};
+        TestSpec::Filter m_currentFilter {};
+        TestSpec m_testSpec {};
         ITagAliasRegistry const* m_tagAliases = nullptr;
 
     public:
         TestSpecParser( ITagAliasRegistry const& tagAliases );
+        TestSpecParser( TestSpecParser const& ) = delete;
+        TestSpecParser& operator=( TestSpecParser const& ) = delete;
 
         TestSpecParser& parse( std::string const& arg );
         TestSpec testSpec();

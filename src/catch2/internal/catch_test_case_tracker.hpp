@@ -88,7 +88,7 @@ namespace TestCaseTracking {
         };
 
         ITracker* m_parent = nullptr;
-        Children m_children;
+        Children m_children {};
         CycleState m_runState = NotStarted;
 
     public:
@@ -96,6 +96,8 @@ namespace TestCaseTracking {
             m_nameAndLocation( CATCH_MOVE(nameAndLoc) ),
             m_parent( parent )
         {}
+        ITracker( ITracker const& ) = delete;
+        ITracker& operator=( ITracker const& ) = delete;
 
 
         // static queries
@@ -168,7 +170,7 @@ namespace TestCaseTracking {
             CompletedCycle
         };
 
-        ITrackerPtr m_rootTracker;
+        ITrackerPtr m_rootTracker {};
         ITracker* m_currentTracker = nullptr;
         RunState m_runState = NotStarted;
 
@@ -208,7 +210,7 @@ namespace TestCaseTracking {
     };
 
     class SectionTracker : public TrackerBase {
-        std::vector<StringRef> m_filters;
+        std::vector<StringRef> m_filters {};
         // Note that lifetime-wise we piggy back off the name stored in the `ITracker` parent`.
         // Currently it allocates owns the name, so this is safe. If it is later refactored
         // to not own the name, the name still has to outlive the `ITracker` parent, so

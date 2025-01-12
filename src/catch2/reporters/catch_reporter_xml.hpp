@@ -56,7 +56,7 @@ namespace Catch {
         void listTags(std::vector<TagInfo> const& tags) override;
 
     private:
-        Timer m_testCaseTimer;
+        Timer m_testCaseTimer {};
         XmlWriter m_xml;
         int m_sectionDepth = 0;
     };

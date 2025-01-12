@@ -89,12 +89,12 @@ namespace Catch {
         std::string name;
         StringRef className;
     private:
-        std::string backingTags;
+        std::string backingTags {};
         // Internally we copy tags to the backing storage and then add
         // refs to this storage to the tags vector.
         void internalAppendTag(StringRef tagString);
     public:
-        std::vector<Tag> tags;
+        std::vector<Tag> tags {};
         SourceLineInfo lineInfo;
         TestCaseProperties properties = TestCaseProperties::None;
     };

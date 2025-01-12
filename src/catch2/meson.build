@@ -228,6 +228,7 @@ internal_sources = files(
   'internal/catch_leak_detector.cpp',
   'internal/catch_list.cpp',
   'internal/catch_message_info.cpp',
+  'internal/catch_noncopyable.cpp',
   'internal/catch_output_redirect.cpp',
   'internal/catch_parse_numbers.cpp',
   'internal/catch_polyfills.cpp',

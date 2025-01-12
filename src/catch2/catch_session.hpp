@@ -20,7 +20,7 @@ namespace Catch {
     public:
 
         Session();
-        ~Session();
+        ~Session() override;
 
         void showHelp() const;
         void libIdentify();
@@ -51,9 +51,9 @@ namespace Catch {
     private:
         int runInternal();
 
-        Clara::Parser m_cli;
-        ConfigData m_configData;
-        Detail::unique_ptr<Config> m_config;
+        Clara::Parser m_cli {};
+        ConfigData m_configData {};
+        Detail::unique_ptr<Config> m_config {};
         bool m_startupExceptions = false;
     };
 

@@ -63,6 +63,8 @@ namespace Catch {
         IStream* m_stream;
     public:
         ColourImpl( IStream* stream ): m_stream( stream ) {}
+        ColourImpl( ColourImpl const& ) = delete;
+        ColourImpl& operator=( ColourImpl const& ) = delete;
 
         //! RAII wrapper around writing specific colour of text using specific
         //! colour impl into a stream.

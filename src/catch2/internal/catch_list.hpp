@@ -21,7 +21,8 @@ namespace Catch {
 
 
     struct ReporterDescription {
-        std::string name, description;
+        std::string description;
+        std::string name;
     };
     struct ListenerDescription {
         StringRef name;
@@ -32,7 +33,7 @@ namespace Catch {
         void add(StringRef spelling);
         std::string all() const;
 
-        std::set<StringRef> spellings;
+        std::set<StringRef> spellings {};
         std::size_t count = 0;
     };
 

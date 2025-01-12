@@ -23,7 +23,7 @@ namespace Catch {
         std::string translateActiveException() const override;
 
     private:
-        ExceptionTranslators m_translators;
+        ExceptionTranslators m_translators {};
     };
 }
 

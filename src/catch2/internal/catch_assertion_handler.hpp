@@ -24,7 +24,7 @@ namespace Catch {
 
     class AssertionHandler {
         AssertionInfo m_assertionInfo;
-        AssertionReaction m_reaction;
+        AssertionReaction m_reaction {};
         bool m_completed = false;
         IResultCapture& m_resultCapture;
 

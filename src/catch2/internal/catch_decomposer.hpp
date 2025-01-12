@@ -115,6 +115,7 @@
 #  pragma GCC diagnostic push
 #  pragma GCC diagnostic ignored "-Wsign-compare"
 #  pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+#  pragma GCC diagnostic ignored "-Weffc++"
 #endif
 
 #if defined(CATCH_CPP20_OR_GREATER) && __has_include(<compare>)

@@ -19,10 +19,17 @@ namespace Catch {
     struct StreamEndStop {
         constexpr StringRef operator+() const { return StringRef(); }
 
+#if defined(__GNUC__)
+#    pragma GCC diagnostic push
+#    pragma GCC diagnostic ignored "-Weffc++"
+#endif
         template <typename T>
         constexpr friend T const& operator+( T const& value, StreamEndStop ) {
             return value;
         }
+#if defined(__GNUC__)
+#    pragma GCC diagnostic pop
+#endif
     };
 
 } // namespace Catch

@@ -77,12 +77,12 @@ namespace Catch {
             }
 
         private:
-            TestRegistry m_testCaseRegistry;
-            ReporterRegistry m_reporterRegistry;
-            ExceptionTranslatorRegistry m_exceptionTranslatorRegistry;
-            TagAliasRegistry m_tagAliasRegistry;
-            StartupExceptionRegistry m_exceptionRegistry;
-            Detail::EnumValuesRegistry m_enumValuesRegistry;
+            TestRegistry m_testCaseRegistry {};
+            ReporterRegistry m_reporterRegistry {};
+            ExceptionTranslatorRegistry m_exceptionTranslatorRegistry {};
+            TagAliasRegistry m_tagAliasRegistry {};
+            StartupExceptionRegistry m_exceptionRegistry {};
+            Detail::EnumValuesRegistry m_enumValuesRegistry {};
         };
     }
 

@@ -54,7 +54,7 @@ namespace Catch {
         void printSectionHeader(std::ostream& os);
 
         bool m_headerPrintedForThisSection = false;
-        Timer m_testTimer;
+        Timer m_testTimer {};
     };
 
 } // end namespace Catch

@@ -39,15 +39,15 @@ namespace Catch {
         ~TestRegistry() override; // = default
 
     private:
-        std::vector<Detail::unique_ptr<TestCaseInfo>> m_owned_test_infos;
+        std::vector<Detail::unique_ptr<TestCaseInfo>> m_owned_test_infos {};
         // Keeps a materialized vector for `getAllInfos`.
         // We should get rid of that eventually (see interface note)
-        std::vector<TestCaseInfo*> m_viewed_test_infos;
+        std::vector<TestCaseInfo*> m_viewed_test_infos {};
 
-        std::vector<Detail::unique_ptr<ITestInvoker>> m_invokers;
-        std::vector<TestCaseHandle> m_handles;
+        std::vector<Detail::unique_ptr<ITestInvoker>> m_invokers {};
+        std::vector<TestCaseHandle> m_handles {};
         mutable TestRunOrder m_currentSortOrder = TestRunOrder::Declared;
-        mutable std::vector<TestCaseHandle> m_sortedFunctions;
+        mutable std::vector<TestCaseHandle> m_sortedFunctions {};
     };
 
     ///////////////////////////////////////////////////////////////////////////

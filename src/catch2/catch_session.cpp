@@ -109,6 +109,8 @@ namespace Catch {
 
                 m_tests = createShard(m_tests, m_config->shardCount(), m_config->shardIndex());
             }
+            TestGroup( TestGroup const& ) = delete;
+            TestGroup& operator=( TestGroup const& ) = delete;
 
             Totals execute() {
                 Totals totals;
@@ -138,8 +140,8 @@ namespace Catch {
             IEventListener* m_reporter;
             Config const* m_config;
             RunContext m_context;
-            std::set<TestCaseHandle const*> m_tests;
-            TestSpec::Matches m_matches;
+            std::set<TestCaseHandle const*> m_tests {};
+            TestSpec::Matches m_matches {};
             bool m_unmatchedTestSpecs = false;
         };
 

@@ -67,8 +67,8 @@ namespace Catch {
         };
 
         struct Filter {
-            std::vector<Detail::unique_ptr<Pattern>> m_required;
-            std::vector<Detail::unique_ptr<Pattern>> m_forbidden;
+            std::vector<Detail::unique_ptr<Pattern>> m_required {};
+            std::vector<Detail::unique_ptr<Pattern>> m_forbidden {};
 
             //! Serializes this filter into a string that would be parsed into
             //! an equivalent filter
@@ -97,8 +97,8 @@ namespace Catch {
         const vectorStrings & getInvalidSpecs() const;
 
     private:
-        std::vector<Filter> m_filters;
-        std::vector<std::string> m_invalidSpecs;
+        std::vector<Filter> m_filters {};
+        std::vector<std::string> m_invalidSpecs {};
 
         friend class TestSpecParser;
         //! Serializes this test spec into a string that would be parsed into

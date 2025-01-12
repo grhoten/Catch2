@@ -25,7 +25,7 @@ namespace Catch {
         void add( std::string const& alias, std::string const& tag, SourceLineInfo const& lineInfo );
 
     private:
-        std::map<std::string, TagAlias> m_registry;
+        std::map<std::string, TagAlias> m_registry {};
     };
 
 } // end namespace Catch

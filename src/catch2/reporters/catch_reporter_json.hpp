@@ -57,7 +57,7 @@ namespace Catch {
         void listTags( std::vector<TagInfo> const& tags ) override;
 
     private:
-        Timer m_testCaseTimer;
+        Timer m_testCaseTimer {};
         enum class Writer {
             Object,
             Array

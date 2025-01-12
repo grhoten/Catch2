@@ -9,7 +9,6 @@
 #include <catch2/internal/catch_singletons.hpp>
 #include <catch2/internal/catch_unique_ptr.hpp>
 
-#include <cstdio>
 #include <sstream>
 #include <vector>
 
@@ -17,9 +16,9 @@ namespace Catch {
 
     // This class encapsulates the idea of a pool of ostringstreams that can be reused.
     struct StringStreams {
-        std::vector<Detail::unique_ptr<std::ostringstream>> m_streams;
-        std::vector<std::size_t> m_unused;
-        std::ostringstream m_referenceStream; // Used for copy state/ flags from
+        std::vector<Detail::unique_ptr<std::ostringstream>> m_streams {};
+        std::vector<std::size_t> m_unused {};
+        std::ostringstream m_referenceStream {}; // Used for copy state/ flags from
 
         auto add() -> std::size_t {
             if( m_unused.empty() ) {

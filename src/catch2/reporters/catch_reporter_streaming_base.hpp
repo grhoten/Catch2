@@ -23,6 +23,8 @@ namespace Catch {
             ReporterBase(CATCH_MOVE(_config))
         {}
         ~StreamingReporterBase() override;
+        StreamingReporterBase( StreamingReporterBase const& ) = delete;
+        StreamingReporterBase& operator=( StreamingReporterBase const& ) = delete;
 
         void benchmarkPreparing( StringRef ) override {}
         void benchmarkStarting( BenchmarkInfo const& ) override {}
@@ -65,7 +67,7 @@ namespace Catch {
         TestCaseInfo const* currentTestCaseInfo = nullptr;
 
         //! Stack of all _active_ sections in the _current_ test case
-        std::vector<SectionInfo> m_sectionStack;
+        std::vector<SectionInfo> m_sectionStack {};
     };
 
 } // end namespace Catch

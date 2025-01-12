@@ -44,9 +44,9 @@ namespace Catch {
         void writeAssertion(AssertionStats const& stats);
 
         XmlWriter xml;
-        Timer suiteTimer;
-        std::string stdOutForSuite;
-        std::string stdErrForSuite;
+        Timer suiteTimer {};
+        std::string stdOutForSuite {};
+        std::string stdErrForSuite {};
         unsigned int unexpectedExceptions = 0;
         bool m_okToFail = false;
     };

@@ -22,6 +22,8 @@ namespace Catch {
         GeneratorException(const char* msg):
             m_msg(msg)
         {}
+        GeneratorException( GeneratorException const& other );
+        GeneratorException& operator=( GeneratorException const& ) = delete;
 
         const char* what() const noexcept override final;
     };

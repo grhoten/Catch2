@@ -266,7 +266,7 @@ namespace Catch {
             std::string m_suffix;
             Colour::Code m_colour;
             std::size_t m_width = 0;
-            std::vector<std::string> m_rows;
+            std::vector<std::string> m_rows {};
         };
 
         void printSummaryRow( std::ostream& stream,

@@ -138,19 +138,19 @@ namespace Catch {
         TestRunInfo m_runInfo;
         TestCaseHandle const* m_activeTestCase = nullptr;
         ITracker* m_testCaseTracker = nullptr;
-        Optional<AssertionResult> m_lastResult;
+        Optional<AssertionResult> m_lastResult {};
 
         IConfig const* m_config;
-        Totals m_totals;
+        Totals m_totals {};
         IEventListenerPtr m_reporter;
-        std::vector<MessageInfo> m_messages;
-        std::vector<ScopedMessage> m_messageScopes; /* Keeps owners of so-called unscoped messages. */
+        std::vector<MessageInfo> m_messages {};
+        std::vector<ScopedMessage> m_messageScopes {}; /* Keeps owners of so-called unscoped messages. */
         AssertionInfo m_lastAssertionInfo;
-        std::vector<SectionEndInfo> m_unfinishedSections;
-        std::vector<ITracker*> m_activeSections;
-        TrackerContext m_trackerContext;
+        std::vector<SectionEndInfo> m_unfinishedSections {};
+        std::vector<ITracker*> m_activeSections {};
+        TrackerContext m_trackerContext {};
         Detail::unique_ptr<OutputRedirect> m_outputRedirect;
-        FatalConditionHandler m_fatalConditionhandler;
+        FatalConditionHandler m_fatalConditionhandler {};
         bool m_lastAssertionPassed = false;
         bool m_shouldReportUnexpected = true;
         bool m_includeSuccessfulResults;

@@ -40,7 +40,9 @@ namespace Catch {
                         std::map<std::string, std::string> customOptions );
 
         ReporterConfig( ReporterConfig&& ) = default;
+        ReporterConfig( ReporterConfig const& ) = delete;
         ReporterConfig& operator=( ReporterConfig&& ) = default;
+        ReporterConfig& operator=( ReporterConfig const& ) = delete;
         ~ReporterConfig(); // = default
 
         Detail::unique_ptr<IStream> takeStream() &&;
@@ -75,6 +77,8 @@ namespace Catch {
                         Counts const& _assertions,
                         double _durationInSeconds,
                         bool _missingAssertions );
+        SectionStats( SectionStats const& ) = default;
+        SectionStats& operator=( SectionStats const& ) = default;
 
         SectionInfo sectionInfo;
         Counts assertions;
@@ -88,6 +92,8 @@ namespace Catch {
                         std::string&& _stdOut,
                         std::string&& _stdErr,
                         bool _aborting );
+        TestCaseStats( TestCaseStats const& ) = default;
+        TestCaseStats& operator=( TestCaseStats const& ) = default;
 
         TestCaseInfo const * testInfo;
         Totals totals;
@@ -100,6 +106,8 @@ namespace Catch {
         TestRunStats(   TestRunInfo const& _runInfo,
                         Totals const& _totals,
                         bool _aborting );
+        TestRunStats( TestRunStats const& ) = default;
+        TestRunStats& operator=( TestRunStats const& ) = default;
 
         TestRunInfo runInfo;
         Totals totals;
@@ -133,12 +141,14 @@ namespace Catch {
     class IEventListener {
     protected:
         //! Derived classes can set up their preferences here
-        ReporterPreferences m_preferences;
+        ReporterPreferences m_preferences {};
         //! The test run's config as filled in from CLI and defaults
         IConfig const* m_config;
 
     public:
         IEventListener( IConfig const* config ): m_config( config ) {}
+        IEventListener( IEventListener const& ) = delete;
+        IEventListener& operator=( IEventListener const& ) = delete;
 
         virtual ~IEventListener(); // = default;
 

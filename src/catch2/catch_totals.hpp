@@ -33,8 +33,8 @@ namespace Catch {
 
         Totals delta( Totals const& prevTotals ) const;
 
-        Counts assertions;
-        Counts testCases;
+        Counts assertions {};
+        Counts testCases {};
     };
 }
 

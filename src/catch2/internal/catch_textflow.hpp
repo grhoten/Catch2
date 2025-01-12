@@ -247,7 +247,7 @@ namespace Catch {
         Column Spacer( size_t spaceWidth );
 
         class Columns {
-            std::vector<Column> m_columns;
+            std::vector<Column> m_columns {};
 
         public:
             class iterator {
@@ -255,7 +255,7 @@ namespace Catch {
                 struct EndTag {};
 
                 std::vector<Column> const& m_columns;
-                std::vector<Column::const_iterator> m_iterators;
+                std::vector<Column::const_iterator> m_iterators {};
                 size_t m_activeIterators;
 
                 iterator( Columns const& columns, EndTag );

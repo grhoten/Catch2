@@ -12,9 +12,6 @@
 #include <catch2/internal/catch_reusable_string_stream.hpp>
 #include <catch2/internal/catch_stdstreams.hpp>
 
-#include <cstdio>
-#include <cstring>
-#include <iosfwd>
 #include <sstream>
 
 #if defined( CATCH_CONFIG_NEW_CAPTURE )
@@ -71,7 +68,8 @@ namespace Catch {
          * but does not touch the actual `stdout`/`stderr` file descriptors.
          */
         class StreamRedirect : public OutputRedirect {
-            ReusableStringStream m_redirectedOut, m_redirectedErr;
+            ReusableStringStream m_redirectedOut {};
+            ReusableStringStream m_redirectedErr {};
             RedirectedStreamNew m_cout, m_cerr, m_clog;
 
         public:

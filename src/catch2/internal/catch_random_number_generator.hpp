@@ -46,7 +46,7 @@ namespace Catch {
         // In practice we do not use them, so we will skip them for now
 
 
-        std::uint64_t m_state;
+        std::uint64_t m_state {};
         // This part of the state determines which "stream" of the numbers
         // is chosen -- we take it as a constant for Catch2, so we only
         // need to deal with seeding the main state.

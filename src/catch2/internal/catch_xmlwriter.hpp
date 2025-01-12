@@ -45,6 +45,8 @@ namespace Catch {
 
         constexpr XmlEncode( StringRef str, ForWhat forWhat = ForTextNodes ):
             m_str( str ), m_forWhat( forWhat ) {}
+        XmlEncode( XmlEncode const& ) = delete;
+        XmlEncode& operator=( XmlEncode const& ) = delete;
 
 
         void encodeTo( std::ostream& os ) const;
@@ -64,7 +66,9 @@ namespace Catch {
             ScopedElement( XmlWriter* writer, XmlFormatting fmt );
 
             ScopedElement( ScopedElement&& other ) noexcept;
+            ScopedElement( ScopedElement const& ) = delete;
             ScopedElement& operator=( ScopedElement&& other ) noexcept;
+            ScopedElement& operator=( ScopedElement const& ) = delete;
 
             ~ScopedElement();
 
@@ -153,8 +157,8 @@ namespace Catch {
 
         bool m_tagIsOpen = false;
         bool m_needsNewline = false;
-        std::vector<std::string> m_tags;
-        std::string m_indent;
+        std::vector<std::string> m_tags {};
+        std::string m_indent {};
         std::ostream& m_os;
     };
 

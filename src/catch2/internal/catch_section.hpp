@@ -24,7 +24,7 @@ namespace Catch {
         Section( SourceLineInfo const& _lineInfo,
                  StringRef _name,
                  const char* const = nullptr );
-        ~Section();
+        ~Section() override;
 
         // This indicates whether the section should be executed or not
         explicit operator bool() const;
@@ -32,9 +32,9 @@ namespace Catch {
     private:
         SectionInfo m_info;
 
-        Counts m_assertions;
+        Counts m_assertions {};
         bool m_sectionIncluded;
-        Timer m_timer;
+        Timer m_timer {};
     };
 
 } // end namespace Catch
